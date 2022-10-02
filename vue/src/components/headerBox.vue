@@ -7,13 +7,13 @@
   <!-- menu items -->
   <div class="menu">
     <ul>
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/postPage">Post Page</router-link></li>
-      <li><router-link to="/AboutUs">About</router-link></li>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/postPage">Post Page</router-link></li>
+        <li><router-link to="/AboutUs">About</router-link></li>
     </ul>
     <ul>
-      <li><a href="#signup">Sign-up</a></li>    
-      <li><a href="#login">Login</a></li>
+        <li><router-link to="/loginPage">Login</router-link></li>
+        <li><router-link to="/signUp">Sign-up</router-link></li>    
     </ul>
   </div>
 </nav>
@@ -22,13 +22,20 @@
 <script>
 export default {
     name: "headerBox",
-    props: {
-        msg: String
-    }
 }
 </script>
 <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+    nav {
+        padding: 30px;
+    }
+    nav a {
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    nav a.router-link-exact-active {
+     color: #42b983;
+    }
     .menu-container {
     display: flex;
     align-items: center;
@@ -102,7 +109,6 @@ export default {
         }
         .menu ul {
             display: flex;
-            padding: 0;
         }
         .menu li {
             padding: 0 20px;
