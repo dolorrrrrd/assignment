@@ -12,6 +12,7 @@
         <li><router-link to="/AboutUs">About</router-link></li>
     </ul>
     <ul>
+        <li><router-link to="/dashboard">Dashboard</router-link></li>
         <li><router-link to="/loginPage">Login</router-link></li>
         <li><router-link to="/signUp">Sign-up</router-link></li>    
     </ul>

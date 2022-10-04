@@ -1,12 +1,12 @@
 @<template>
     <div class="signup">
         <div class="main">
-            <p class="sign">Sign Up</p>
+            <p class="sign">Forgot PW</p>
             <form class="form1">
-                <input class="un " type="text" placeholder="Username">
-                <input class="pass" type="password" placeholder="Enter Password">
+                <input class="un " type="text" placeholder="Enter Username">
+                <input class="pass" type="password" placeholder="Enter New Password">
                 <input class="pass" type="password" placeholder="Repeat Password">
-                <button>Register</button>
+                <button>Change Password</button>
                 <p class="forgot"><router-link to="/loginPage">Sign-in</router-link></p>
                 <router-view/>
             </form>

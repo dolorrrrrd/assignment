@@ -1,0 +1,37 @@
+@<template>
+    <div id="toReplace">
+        <component :is="currentComponent"></component>
+        <div v-show="!currentComponent" :key = "component" v-for="component in componentsArray">
+            <button @click="swapComponent(component)">{{component}}</button>
+        </div>
+        <button @click="swapComponent(null)">Close</button>
+        </div>
+</template>
+
+<script>
+    import signupbox from '@/components/signupbox.vue';
+    import loginbox from '../components/loginbox.vue'
+    export default {
+        name:"loginPage",
+        data() {
+            return{
+                currentComponent: null,
+                componentsArray: [loginbox,signupbox]
+            }
+        },
+        components: {
+            loginbox,
+            signupbox,
+        },
+        methods: {
+            swapComponent: function(component)
+        {
+            this.currentComponent = component;
+        }
+        }
+    }
+</script>
+
+<style>
+
+</style>

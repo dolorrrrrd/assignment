@@ -12,15 +12,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
     footer{
         display: flex;
         background-color:#232323;
         color:#cdcdcd;
-        padding: 5px;
         font-family: 'Asap', sans-serif;
         font-size: 25px;
+        position:relative;
+        bottom:0;
+        width: 100%;
     }
     p{
         margin-left: auto;
