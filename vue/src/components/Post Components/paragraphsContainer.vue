@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-    import commentBox from '../components/commentBox.vue';
+    import commentBox from '@/components/Post Components/commentBox.vue';
     export default {
         name: "paragraphsContainer",
         components: {

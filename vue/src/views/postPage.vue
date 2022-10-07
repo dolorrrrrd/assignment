@@ -7,8 +7,8 @@
     </div>
 </template>
 <script>
-    import paragraphsContainer from '../components/paragraphsContainer.vue';
-    import sidebar from '../components/sidebar.vue';
+    import paragraphsContainer from '../components/Post Components/paragraphsContainer.vue';
+    import sidebar from '../components/Post Components/sidebar.vue';
     export default {
     name: "postPage",
     components: { 

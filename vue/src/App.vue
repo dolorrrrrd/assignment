@@ -1,18 +1,21 @@
 <template>
-  <headerBox/>
-  <footerBar/>
+  <!-- <headerBox/> -->
+  <dashboard/>
+  <!-- <footerBar/> -->
 </template>
 <script>
-  import headerBox from './components/headerBox.vue'
-  import footerBar from './components/footerBar.vue'
+  // import headerBox from './components/Main Components/headerBox.vue'
+  // import footerBar from './components//Main Components/footerBar.vue'
+  import dashboard from './views/dashboard.vue'
   export default {
       name: "postPage",
       props: {
           msg: String
       },
       components:{
-          headerBox,
-          footerBar
+          // headerBox,
+          // footerBar,
+          dashboard
       }
   }
 </script>

@@ -2,7 +2,7 @@
 <nav class="menu-container">
 
   <!-- logo -->
-  <router-link to="/" class="menu-logo"><img src="../assets/logo.png" alt="" id = "siteLogo"></router-link>
+  <router-link to="/" class="menu-logo"><img src="../../assets/logo.png" alt="" id = "siteLogo"></router-link>
 
   <!-- menu items -->
   <div class="menu">
