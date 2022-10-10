@@ -37,7 +37,7 @@ export default {
                     if(res.data){
                         console.log(res);
                         console.log("sux");
-                        alert("Sign Up Successful!");
+                        alert("Password Changed Successfully!");
                         this.$router.push('/login');
                     }else{
                         console.log(res);

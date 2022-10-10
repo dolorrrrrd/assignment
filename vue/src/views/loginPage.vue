@@ -4,7 +4,7 @@
             <p class="sign">Log in</p>
             <form class="form1" @submit.prevent="onSignIn()" action="login"  method="POST">
                 <input class="username " type="text" placeholder="Username" v-model="username">
-                <input class="password" type="text" placeholder="Password" v-model="password">
+                <input class="password" type="password" placeholder="Password" v-model="password">
                 <Button >Sign in</Button>
                 <router-link to="/signUp">Register</router-link>
                 <router-link to="/forgotPW">Forgot your password?</router-link>
@@ -40,7 +40,7 @@ export default {
                     }else{
                         console.log(res);
                         console.log("ff");
-                        alert("Invalid")
+                        alert("Invalid Username Or Password")
                     }
                 }
             ).catch(

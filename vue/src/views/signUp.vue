@@ -49,11 +49,12 @@ export default {
                     if(res.data){
                         console.log(res);
                         console.log("sux");
+                        alert("Sign Up Successful!");
                         this.$router.push('/login');
                     }else{
                         console.log(res);
                         console.log("ff");
-                        alert("Username Taken")
+                        alert("Username Taken");
                     }
                 }).catch(
                     error=>{
