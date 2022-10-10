@@ -17,26 +17,25 @@
   }
   </script>
   
-  <style>
+  <style scoped>
     .dash{
         display: flex;
-        background-color: aquamarine;
+        background-color: #f6f7f7;
         justify-content: space-between;
+        position: sticky;
+        top:0;
     }
     .dashHeader{
-        background-color: hotpink;
+        background-color: #f6f7f7;
         display: flex;
         width: 10%;
-        margin-left: 1%;
-        justify-content: center;
         align-items: center;
         justify-content: space-around;
     }
     .dashR{
-        background-color: hotpink;
+        background-color: #f6f7f7;
         display: flex;
         width: 10%;
-        margin-right: 1%;
         justify-content: space-around;
         align-items: center;
     }

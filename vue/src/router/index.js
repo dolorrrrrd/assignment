@@ -46,8 +46,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/forgotPW.vue')
-  }
-  ,
+  },
   {
     path: '/dashboard',
     name: 'dashboard',
@@ -55,6 +54,22 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/dashboard.vue')
+  },
+  {
+    path: '/dashPost',
+    name: 'dashPost',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/dashPost.vue')
+  },
+  {
+    path: '/postEditor',
+    name: 'postEditor',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/postEditor.vue')
   }
 ]
 

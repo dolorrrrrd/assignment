@@ -1,24 +1,23 @@
 <template>
-<nav class="menu-container">
+    <div>
+        <nav class="menu-container">
+        <!-- logo -->
+        <router-link to="/" class="menu-logo"><img src="../../assets/logo.png" alt="" id = "siteLogo"></router-link>
 
-  <!-- logo -->
-  <router-link to="/" class="menu-logo"><img src="../../assets/logo.png" alt="" id = "siteLogo"></router-link>
-
-  <!-- menu items -->
-  <div class="menu">
-    <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/postPage">Post Page</router-link></li>
-        <li><router-link to="/AboutUs">About</router-link></li>
-    </ul>
-    <ul>
-        <li><router-link to="/dashboard">Dashboard</router-link></li>
-        <li><router-link to="/loginPage">Login</router-link></li>
-        <li><router-link to="/signUp">Sign-up</router-link></li>    
-    </ul>
-  </div>
-</nav>
-<router-view/>
+        <!-- menu items -->
+        <div class="menu">
+            <ul>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/postPage">Post Page</router-link></li>
+                <li><router-link to="/AboutUs">About</router-link></li>
+            </ul>
+            <ul>
+                <li><router-link to="/loginPage">Login</router-link></li>
+                <li><router-link to="/signUp">Sign-up</router-link></li>    
+            </ul>
+        </div>
+        </nav>
+    </div>
 </template>
 <script>
 export default {

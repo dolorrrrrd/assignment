@@ -1,11 +1,11 @@
-@<template>
+<template>
     <div class="login">
         <div class="main">
             <p class="sign">Log in</p>
-            <form class="form1">
-                <input class="un " type="text" placeholder="Username">
-                <input class="pass" type="password" placeholder="Password">
-                <Button>Sign in</Button>
+            <form class="form1" @submit.prevent="onSignIn()" action="login"  method="POST">
+                <input class="username " type="text" placeholder="Username" v-model="username">
+                <input class="password" type="text" placeholder="Password" v-model="password">
+                <Button >Sign in</Button>
                 <router-link to="/signUp">Register</router-link>
                 <router-link to="/forgotPW">Forgot your password?</router-link>
                 <router-view/>
@@ -15,10 +15,42 @@
 </template>
 
 <script>
+/* eslint-disable */
+import axios from "axios";
 export default {
-    name: "loginPage",
-}
+  name: "loginPage",
+  data(){
+        return{
+            username:'',
+            password:'',
+        }
 
+    },
+    methods:{
+        async onSignIn(){
+            const data = new FormData();
+            data.append('username',this.username);
+            data.append('password',this.password);
+            const response = await axios.post('http://repo/assignment/vue/src/php/toDB.php?action=login',data).then(
+                res=>{
+                    if(res.data){
+                        console.log(res);
+                        console.log("sux");
+                        this.$router.push('/dashboard');
+                    }else{
+                        console.log(res);
+                        console.log("ff");
+                        alert("Invalid")
+                    }
+                }
+            ).catch(
+                error=>{
+                    console.log(error);
+                }
+            );
+        }
+    }
+}
 </script>
 
 <style scoped>
