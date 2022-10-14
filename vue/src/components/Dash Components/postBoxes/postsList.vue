@@ -24,6 +24,10 @@ export default {
     name: "postsList",
     props:{
         articleList:Array,
+    },data(){
+        return{
+            
+        }
     }
 
 }

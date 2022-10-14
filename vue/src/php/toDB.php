@@ -90,4 +90,14 @@
         }
         // echo json_encode($result);
     }
+    if($action =='showPosts'){
+        $sql = "SELECT * FROM `posts`;";
+        $result=$conn->query($sql);
+        $posts = array();
+        while ($row = $result->fetch_assoc()){
+            array_push($posts,$row);
+        }
+        $postsList['posts'] = $posts;
+        echo json_encode($postsList);
+    }
 ?>

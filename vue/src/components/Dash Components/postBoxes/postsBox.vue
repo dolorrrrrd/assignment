@@ -6,6 +6,7 @@
 </template>
 
 <script>
+    import axios from "axios"
     import postsList from '@/components/Dash Components/postBoxes/postsList.vue'
 export default {
     name: "postsBox",
@@ -17,181 +18,33 @@ export default {
             articleList :[]
         }
     },
-    created (){
-        this.articleList = [
-        {
-                postID:1,
-                postTitle: "Lorem 1",
-                postAuthor: "Auth 1",
-                postCateg: "Categ1",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:2,
-                postTitle: "Lorem 2",
-                postAuthor: "Auth 2",
-                postCateg: "Categ2",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:3,
-                postTitle: "Lorem 3",
-                postAuthor: "Auth 3",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:4,
-                postTitle: "Lorem 4",
-                postAuthor: "Auth 4",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:5,
-                postTitle: "Lorem 5",
-                postAuthor: "Auth 5",
-                postCateg: "Categ5",
-                postDate: "10/8/2022"
-            },            {
-                postID:1,
-                postTitle: "Lorem 1",
-                postAuthor: "Auth 1",
-                postCateg: "Categ1",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:2,
-                postTitle: "Lorem 2",
-                postAuthor: "Auth 2",
-                postCateg: "Categ2",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:3,
-                postTitle: "Lorem 3",
-                postAuthor: "Auth 3",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:4,
-                postTitle: "Lorem 4",
-                postAuthor: "Auth 4",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:5,
-                postTitle: "Lorem 5",
-                postAuthor: "Auth 5",
-                postCateg: "Categ5",
-                postDate: "10/8/2022"
-            },            {
-                postID:1,
-                postTitle: "Lorem 1",
-                postAuthor: "Auth 1",
-                postCateg: "Categ1",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:2,
-                postTitle: "Lorem 2",
-                postAuthor: "Auth 2",
-                postCateg: "Categ2",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:3,
-                postTitle: "Lorem 3",
-                postAuthor: "Auth 3",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:4,
-                postTitle: "Lorem 4",
-                postAuthor: "Auth 4",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:5,
-                postTitle: "Lorem 5",
-                postAuthor: "Auth 5",
-                postCateg: "Categ5",
-                postDate: "10/8/2022"
-            },            {
-                postID:1,
-                postTitle: "Lorem 1",
-                postAuthor: "Auth 1",
-                postCateg: "Categ1",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:2,
-                postTitle: "Lorem 2",
-                postAuthor: "Auth 2",
-                postCateg: "Categ2",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:3,
-                postTitle: "Lorem 3",
-                postAuthor: "Auth 3",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:4,
-                postTitle: "Lorem 4",
-                postAuthor: "Auth 4",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:5,
-                postTitle: "Lorem 5",
-                postAuthor: "Auth 5",
-                postCateg: "Categ5",
-                postDate: "10/8/2022"
-            },            {
-                postID:1,
-                postTitle: "Lorem 1",
-                postAuthor: "Auth 1",
-                postCateg: "Categ1",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:2,
-                postTitle: "Lorem 2",
-                postAuthor: "Auth 2",
-                postCateg: "Categ2",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:3,
-                postTitle: "Lorem 3",
-                postAuthor: "Auth 3",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:4,
-                postTitle: "Lorem 4",
-                postAuthor: "Auth 4",
-                postCateg: "Categ4",
-                postDate: "10/8/2022"
-            },
-            {
-                postID:5,
-                postTitle: "Lorem 5",
-                postAuthor: "Auth 5",
-                postCateg: "Categ5",
-                postDate: "10/8/2022"
-            },
-        ]
-    }
+    mounted: function(){
+        this.getPosts();
+    },
+    methods:{
+        async getPosts(){
+            await axios.get('http://repo/assignment/vue/src/php/toDB.php?action=showPosts').then(
+            res=>{
+                if(res){
+                    this.articleList = Object.entries(res.data.posts).map((arr) =>({
+                        postID:arr[1].pid,
+                        postTitle:arr[1].Title,
+                        postAuthor:arr[1].uid,
+                        postCateg:arr[1].category,
+                        postDate:arr[1].date
+                    })
+                    );
+                    console.log("success");
+                }else{
+                    console.log(res);
+                    console.log("ff");
+                }
+            }).catch(
+                error=>{
+                    console.log(error);
+                });
+        }
+    } 
 }
 </script>
 
