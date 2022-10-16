@@ -8,11 +8,11 @@
                     <th>Categories</th>
                     <th>Date</th>
                 </thead>
-                <tr :key="postTitle.postID" v-for="postTitle in articleList">
-                    <td><div class="firstCol"> <div class="pdata">{{postTitle.postTitle}}</div> <div class="submenu"><a href="/">Edit</a> <a href="/">View</a> <a href="/">Trash</a></div></div></td>
-                    <td><div class="pdata">{{postTitle.postAuthor}}</div> </td>
-                    <td><div class="pdata">{{postTitle.postCateg}}</div> </td>
-                    <td><div class="pdata">{{postTitle.postDate}}</div> </td>
+                <tr :key="postsList.postID" v-for="postsList in articleList">
+                    <td><div class="firstCol"> <div class="pdata">{{postsList.postTitle}}</div> <div class="submenu"><a href="/">Edit</a> <router-link :to="{ name: 'postPage', query: { postID: postsList.postID }}">View</router-link> <a href="/">Trash</a></div></div></td>
+                    <td><div class="pdata">{{postsList.postAuthor}}</div> </td>
+                    <td><div class="pdata">{{postsList.postCateg}}</div> </td>
+                    <td><div class="pdata">{{postsList.postDate}}</div> </td>
                 </tr>
             </table>
         </div>
@@ -26,10 +26,9 @@ export default {
         articleList:Array,
     },data(){
         return{
-            
+            postID:0,
         }
-    }
-
+    },
 }
 </script>
 

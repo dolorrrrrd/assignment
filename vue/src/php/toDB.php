@@ -91,7 +91,18 @@
         // echo json_encode($result);
     }
     if($action =='showPosts'){
-        $sql = "SELECT * FROM `posts`;";
+        $sql = "SELECT pid, fname, lname, title, category,date FROM posts INNER JOIN users ON posts.uid=users.uid;";
+        $result=$conn->query($sql);
+        $posts = array();
+        while ($row = $result->fetch_assoc()){
+            array_push($posts,$row);
+        }
+        $postsList['posts'] = $posts;
+        echo json_encode($postsList);
+    }
+    if($action =='getPostContent'){
+        $postID=$_POST['postID'];
+        $sql = "SELECT pid,title, category,date,fname, lname,content,picURL FROM posts INNER JOIN users ON posts.uid=users.uid where pid='$postID';";
         $result=$conn->query($sql);
         $posts = array();
         while ($row = $result->fetch_assoc()){

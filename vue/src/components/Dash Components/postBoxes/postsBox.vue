@@ -6,8 +6,8 @@
 </template>
 
 <script>
-    import axios from "axios"
-    import postsList from '@/components/Dash Components/postBoxes/postsList.vue'
+import axios from "axios"
+import postsList from '@/components/Dash Components/postBoxes/postsList.vue'
 export default {
     name: "postsBox",
     components:{
@@ -28,8 +28,8 @@ export default {
                 if(res){
                     this.articleList = Object.entries(res.data.posts).map((arr) =>({
                         postID:arr[1].pid,
-                        postTitle:arr[1].Title,
-                        postAuthor:arr[1].uid,
+                        postTitle:arr[1].title,
+                        postAuthor:arr[1].fname +" "+arr[1].lname,
                         postCateg:arr[1].category,
                         postDate:arr[1].date
                     })
@@ -37,7 +37,7 @@ export default {
                     console.log("success");
                 }else{
                     console.log(res);
-                    console.log("ff");
+                    console.log("postbox load Failed");
                 }
             }).catch(
                 error=>{
